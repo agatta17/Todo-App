@@ -41,6 +41,9 @@ function App() {
           {false}
           {true}
         </p>
+        <p>
+        count * length = {count*length}
+        </p>
       </header>
     </div>
   );
