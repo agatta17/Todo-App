@@ -17,32 +17,30 @@ function App() {
           color: 'blue',
           fontSize: 50
         } }>
-          Edit <code>src/App.js</code> and save to reload.
+          добавление в разметку объекта style
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <p>
-          Новый текст документа
+          вывод значения переменной: {newString}
         </p>
-        {newString}
         <p>
-          {number}
+          вывод числa: {number}
         </p>
-        {factor*number}
         <p>
-          {flag && 'flag is true'}
+          вывод результата арифметической операции: {number*2}
         </p>
-        {factor===2 ? 'factor = 2' : 'false'}
-        {undefined}
-        {null}
-        {false}
-        {true}
+        <p>
+          вывод результата логической операции: {flag && 'flag is true'}
+        </p>
+        <p>
+          использование тернарного условия: {factor===2 ? 'factor = 2' : 'false'}
+        </p>
+        <p>
+          вывод undefined, null, false и true: 
+          {undefined}
+          {null}
+          {false}
+          {true}
+        </p>
       </header>
     </div>
   );
