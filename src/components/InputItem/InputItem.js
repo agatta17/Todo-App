@@ -1,5 +1,12 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
-const InputItem = () => (<input type="text" placeholder="Что нужно сделать?"/>);
+const InputItem = () => (<div>
+    <TextField
+        label="Добавить задание"
+        id="outlined-basic" 
+        variant="outlined"
+    />
+</div>);
 
 export default InputItem;
