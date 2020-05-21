@@ -3,11 +3,17 @@ import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 
+const TodoItems = {
+	first: 'Выполнить урок по React',
+	second: 'Приготовить обед',
+	third: 'Помыть посуду'
+};
+
 const App = () => (<div>
   <h1>todos</h1>
   <InputItem />
-  <ItemList />
-  <Footer />
+  <ItemList TodoItems = {TodoItems}/>
+  <Footer count={3} />
 </div>);
 
 export default App;
