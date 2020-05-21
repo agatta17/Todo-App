@@ -13,7 +13,7 @@ const App = () => (<div>
   <h1>todos</h1>
   <InputItem />
   <ItemList TodoItems = {TodoItems}/>
-  <Footer count={5} />
+  <Footer count={3} />
 </div>);
 
 export default App;
