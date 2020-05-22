@@ -1,9 +1,9 @@
-.wrap {
-	margin: auto;
-	width: 300px;
-}
-.wrap__title {
+.as {
 	font-size: 40px;
 	font-family: Arial, sans-serif;
 	color: #ccc;
+}
+.wraps {
+	margin: auto;
+	width: 300px;
 }
