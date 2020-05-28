@@ -1,9 +1,22 @@
 .wrap {
-	margin: auto;
-	width: 300px;
+  margin: auto;
+  min-width: 320px;
+  max-width: 380px;
+  box-sizing: border-box;
+  border: solid 1px #F0F8FF;
+  border-radius: 8px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 0 10px #F0F8FF;
 }
 .title {
-	font-size: 40px;
-	font-family: Arial, sans-serif;
-	color: #ccc;
+  font-size: 30px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: #ccc;
+  margin: 10px 0;
+}
+body {
+  background: #F5F5F5;
+  padding: 0;
+  margin: 0;
 }

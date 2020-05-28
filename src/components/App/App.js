@@ -5,22 +5,25 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
 const items = [
-	{value: 'Сделать урок по React',
-	isDone: true
+  {value: 'Сделать урок по React',
+  isDone: true
 },
-	{value: 'Приготовить обед',
-	isDone: true
+  {value: 'Приготовить обед',
+  isDone: true
 },
-	{value: 'Помыть посуду',
-	isDone: false
+  {value: 'Помыть посуду',
+  isDone: false
+},
+  {value: 'Погулять с собакой',
+  isDone: false
 }
 ];
 
 const App = () => (<div className={styles.wrap}>
-  <h1 className={styles.title}>todos</h1>
+  <h1 className={styles.title}>Задачи на сегодня:</h1>
   <InputItem />
   <ItemList items = {items}/>
-  <Footer count={3} />
+  <Footer count={2} />
 </div>);
 
 export default App;
