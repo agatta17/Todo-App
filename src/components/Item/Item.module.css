@@ -1,6 +1,26 @@
 .item {
-	color: #333;
+  color: #333;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 40px;
+  position: relative;
+}
+.deleteitem {
+  display: none;
+  width: 18px;
+  height: 22px;
+  background-image: url("delete.svg");
+  background-size: cover;
+  position: absolute;
+  left: 92%;
+  top: 8px;
+}
+.item:hover {
+  cursor: pointer;
+}
+.item:hover .deleteitem{
+  display: block;
 }
 .done {
-	color: #ccc;
+  color: #ccc;
+  text-decoration: line-through;
 }
