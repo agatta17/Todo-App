@@ -4,13 +4,16 @@ import styles from './Item.module.css';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
-const Item = ({value, isDone}) => (<div className={
+const Item = ({value, isDone, onClickDone}) => (<div className={
 	classnames({
 		[styles.item]: true,
 		[styles.done]: isDone
 	})
 }>
-	  <Checkbox checked={isDone ? "checked" : ""}/> 
+	  <Checkbox 
+	    checked={isDone ? "checked" : ""}
+	    onClick={ () => onClickDone(isDone) }
+	  /> 
 	  {value}
 	  <div className={styles.deleteitem}></div>
 </div>
