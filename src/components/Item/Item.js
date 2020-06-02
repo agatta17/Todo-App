@@ -9,7 +9,7 @@ const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<div classNam
 		[styles.item]: true,
 		[styles.done]: isDone
 	})
-}>
+	}>
 	  <Checkbox 
 	    checked={isDone ? "checked" : ""}
 	    onClick={ () => onClickDone(id) }
