@@ -27,13 +27,17 @@ const Footer = ({count}) => (<footer className={styles.footer}>
   
   <span className={styles.left}> Невыполненных задач: {count} </span>
 
-  <Link component="button" variant="body2" onClick={() => {
-    console.info("I'm a button.");
-    }}
+  <Link 
+    component="button" variant="body2" 
+    onClick={() => {console.info("I'm a button.");}}
   >
     Удалить выполненные задачи
   </Link>
 
 </footer>);
+
+Footer.defaultProps = {
+  count: 0,
+};
 
 export default Footer;
