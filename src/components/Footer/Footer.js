@@ -3,6 +3,7 @@ import styles from './Footer.module.css';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Link from '@material-ui/core/Link';
+import PropTypes from 'prop-types';
 
 function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -38,6 +39,10 @@ const Footer = ({count}) => (<footer className={styles.footer}>
 
 Footer.defaultProps = {
   count: 0,
+};
+
+Footer.propTypes = {
+  count: PropTypes.number.isRequired,
 };
 
 export default Footer;
