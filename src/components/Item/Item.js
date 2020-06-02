@@ -11,7 +11,7 @@ const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<div classNam
 	})
 	}>
 	  <Checkbox 
-	    checked={isDone ? "checked" : ""}
+	    checked={isDone}
 	    onClick={ () => onClickDone(id) }
 	  /> 
 	  {value}
@@ -22,5 +22,9 @@ const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<div classNam
 	  </div>
 </div>
 );
+
+Item.defaultProps = {
+	isDone: false,
+}
 
 export default Item;
