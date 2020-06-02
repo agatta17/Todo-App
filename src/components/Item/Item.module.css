@@ -14,11 +14,9 @@
   left: 92%;
   top: 8px;
 }
-.item:hover {
-  cursor: pointer;
-}
 .item:hover .deleteitem{
   display: block;
+  cursor: pointer;
 }
 .done {
   color: #ccc;
