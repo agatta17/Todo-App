@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
-class App extends React.Component {
-  state = {
-    items: [
+function App() {
+  useEffect(() => {console.log('update')});
+  useEffect(() => {console.log('mount')},[]);
+  const [count, setCount] = useState(4);
+  const [items, setItems] = useState(
+    [
       {
         value: 'Сделать урок по React',
-        isDone: true,
+        isDone: false,
         id: 1
       },
       {
         value: 'Приготовить обед',
-        isDone: true,
+        isDone: false,
         id: 2
       },
       {
@@ -27,47 +30,43 @@ class App extends React.Component {
         isDone: false,
         id: 4
       }
-    ],
-    count: 6
-  };
+    ]);
 
-  onClickDone = id => {
-    const newItemList = this.state.items.map(item => {
+  const onClickDone = id => {
+    const newItemList = items.map(item => {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
       }
       return newItem;
     });
-    this.setState({items: newItemList});
+    setItems(newItemList);
     };
   
-  onClickDelete = id => {
-    const newItemList = this.state.items.filter(item => item.id !== id);
-    this.setState({items: newItemList});
+  const onClickDelete = id => {
+    const newItemList = items.filter(item => item.id !== id);
+    setItems(newItemList);
     };
 
-  onClickAdd = value => this.setState(state => ({
-    items: [
-      ...state.items,
-      {
-        value,
-        isDone: false,
-        id: state.count + 1
-      }
-    ],
-    count: state.count + 1
-  }));
-
-  render() {
-  	return (
-      <div className={styles.wrap}>
-        <h1 className={styles.title}>Задачи на сегодня:</h1>
-        <InputItem onClickAdd={this.onClickAdd} />
-        <ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete} />
-        <Footer count={this.state.count} />
-      </div>);
-  }
+  const onClickAdd = value => {
+      setItems(
+        [...items, {
+          value,
+          isDone: false,
+          id: count + 1
+          }
+        ]);
+      setCount(count + 1)
+  };
+  
+	return (
+    <div className={styles.wrap}>
+      <h1 className={styles.title}>Задачи на сегодня:</h1>
+      <InputItem onClickAdd={onClickAdd} />
+      <ItemList items={items} onClickDone={onClickDone} onClickDelete={onClickDelete} />
+      <Footer count={count} />
+    </div>);
+  
 };
 
 export default App;
