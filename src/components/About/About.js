@@ -59,8 +59,6 @@ class About extends React.Component {
         isLoading: false
       })
     });
-
-
   };
 
   render() {
@@ -93,5 +91,3 @@ class About extends React.Component {
 }
 
 export default About;
-
-
