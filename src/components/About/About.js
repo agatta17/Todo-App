@@ -17,48 +17,34 @@ class About extends React.Component {
     octokit.repos.listForUser({
       username: 'agatta17'
     }).then(
-    successResponse => {
-      if (successResponse.status === 404) {
+      successResponse => {
+        this.setState({
+          repoList: successResponse.data,
+          fetchReposFailure: false,
+          isLoading: false
+        })    
+      }).catch(error => {
         this.setState({
           fetchReposFailure: true,
           isLoading: false
         })
-      } else {
-          this.setState({
-            repoList: successResponse.data,
-            isLoading: false,
-            fetchReposFailure: false,
-        });
-      }
-    }).catch(error => {
-      this.setState({
-        fetchReposFailure: true,
-        isLoading: false
-      })}
-    );
+      });
 
     octokit.users.getByUsername({
       username: 'agatta17'
     }).then(
-    successResponse => {
-      if (successResponse.status === 404) {
+      successResponse => {
+        this.setState({
+          userInfo: successResponse.data,
+          isLoading: false,
+          fetchUserFailure: false,
+        });
+      }).catch(error => {
         this.setState({
           fetchUserFailure: true,
           isLoading: false
         })
-      } else {
-          this.setState({
-            userInfo: successResponse.data,
-            isLoading: false,
-            fetchUserFailure: false,
-        });
-      }
-    }).catch(error => {
-      this.setState({
-        fetchUserFailure: true,
-        isLoading: false
-      })
-    });
+      });
   };
 
   render() {
