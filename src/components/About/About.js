@@ -22,7 +22,7 @@ class About extends React.Component {
           repoList: successResponse.data,
           fetchReposFailure: false,
           isLoading: false
-        })    
+        }); 
       }).catch(error => {
         this.setState({
           fetchReposFailure: true,

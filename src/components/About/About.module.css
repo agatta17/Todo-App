@@ -4,6 +4,7 @@
   color: #ccc;
   margin: 10px 0;
 }
+
 .error {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   padding: 10px 10px 10px 44px;
@@ -14,12 +15,15 @@
   background-repeat: no-repeat;
   background-position: 10px 50%;
 }
+
 .avatar {
   width: 220px;
 }
+
 .progress {
   margin-left: 150px;
 }
+
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
