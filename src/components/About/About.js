@@ -27,7 +27,7 @@ class About extends React.Component {
         this.setState({
           fetchReposFailure: true,
           isLoading: false
-        })
+        });
       });
 
     octokit.users.getByUsername({
@@ -43,7 +43,7 @@ class About extends React.Component {
         this.setState({
           fetchUserFailure: true,
           isLoading: false
-        })
+        });
       });
   };
 
