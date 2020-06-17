@@ -5,40 +5,40 @@ import Checkbox from '@material-ui/core/Checkbox';
 import PropTypes from 'prop-types';
 
 class Item extends React.Component {
-	componentDidMount() {
-		this.timerID = setInterval(() => console.log('interval'), 1000);
-	}
-	componentDidUpdate() {
-		console.log('componentDidUpdate');
-	}
-	componentWillUnmount() {
-		clearInterval(this.timerID);
-	}
-	render() {
-		const {value, isDone, onClickDone, id, onClickDelete} = this.props;
-		return (
-			<div className={
-				classnames({
-					[styles.item]: true,
-					[styles.done]: isDone
-				})
-			}>
-			  <Checkbox 
-			    checked={isDone}
-			    onClick={ () => onClickDone(id) }
-			  /> 
-			  {value}
-			  <div 
-			    className={styles.deleteitem}
-			    onClick={ () => onClickDelete(id) }
-			  >
-			  </div>
-			</div>);
-	}
+  componentDidMount() {
+    this.timerID = setInterval(() => console.log('interval'), 1000);
+  }
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  render() {
+    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
+    return (
+      <div className={
+        classnames({
+          [styles.item]: true,
+          [styles.done]: isDone
+        })
+      }>
+        <Checkbox 
+          checked={isDone}
+          onClick={ () => onClickDone(id) }
+        /> 
+        {value}
+        <div 
+          className={styles.deleteitem}
+          onClick={ () => onClickDelete(id) }
+        >
+        </div>
+      </div>);
+  }
 }
 
 Item.defaultProps = {
-	isDone: false,
+  isDone: false,
 }
 
 Item.propTypes = {

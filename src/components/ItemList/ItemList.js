@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 const ItemList = ({items, onClickDone, onClickDelete}) => (<ul className={styles.itemlist}>
   {items.map(item => <li key={item.id}>
-		<Item 
-		  value={item.value} 
-		  isDone={item.isDone} 
-		  onClickDone={onClickDone} 
-		  id={item.id}
-		  onClickDelete={onClickDelete}
-		/>
+    <Item 
+      value={item.value} 
+      isDone={item.isDone} 
+      onClickDone={onClickDone} 
+      id={item.id}
+      onClickDelete={onClickDelete}
+    />
   </li>)}
 </ul>);
 

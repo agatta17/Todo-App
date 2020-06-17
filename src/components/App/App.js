@@ -11,7 +11,7 @@ import AppBar from '@material-ui/core/AppBar';
 
 function App() {
 
-	return (
+  return (
     <Router>
       <div className={styles.wrap}>
         <AppBar position='static' color='transparent'>
