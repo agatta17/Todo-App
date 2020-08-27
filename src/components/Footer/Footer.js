@@ -12,10 +12,10 @@ function Footer ({count, onClickDeleteCompleted, hideCompleted, hideActive, disp
       value={bottomNavigationValue}
       onChange={(event, newValue) => {
         switch (newValue) {
-          case "active":
+          case 'active':
             hideCompleted();
             break;
-          case "completed":
+          case 'completed':
             hideActive();
             break;
           default: 
@@ -24,21 +24,21 @@ function Footer ({count, onClickDeleteCompleted, hideCompleted, hideActive, disp
       }}
       showLabels
     >
-      <BottomNavigationAction label="Все" value="all"/>
-      <BottomNavigationAction label="Активные" value="active"/>
-      <BottomNavigationAction label="Выполненные" value="completed"/>
+      <BottomNavigationAction label='Все' value='all'/>
+      <BottomNavigationAction label='Активные' value='active'/>
+      <BottomNavigationAction label='Выполненные' value='completed'/>
     </BottomNavigation>
   
   <span className={styles.left}> Невыполненных задач: {count} </span>
 
   <Link 
-    component="button" variant="body2" 
+    component='button' variant='body2' 
     onClick={ () => onClickDeleteCompleted() }
   >
     Удалить выполненные задачи
   </Link>
 
-</footer>)};
+</footer>)}
 
 Footer.defaultProps = {
   count: 0,

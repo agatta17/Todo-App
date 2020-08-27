@@ -9,7 +9,7 @@ const ItemList = ({items, moveItems}) => {
     <>
       {!items.length && <div className={styles.noitems}><img src={noItems}></img></div>}
       <ul className={styles.itemlist}>
-        {items.filter(item => item.hide == false).map((item, index) => <li key={item.id}>
+        {items.filter(item => item.hide === false).map((item, index) => <li key={item.id}>
           <Item 
             value={item.value} 
             isDone={item.isDone} 
@@ -23,7 +23,7 @@ const ItemList = ({items, moveItems}) => {
       </ul>
     </>
   );
-}
+};
 
 ItemList.propTypes = {
   items: PropTypes.array.isRequired,

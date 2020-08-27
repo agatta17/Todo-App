@@ -4,7 +4,7 @@
   line-height: 25px;
   position: relative;
   cursor: move;
-  border: 1px dashed gray;
+  border: 1px dashed #808080;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
@@ -20,6 +20,7 @@
   left: 93%;
   top: calc(50% - 11px);
 }
+
 .edititem {
   display: none;
   width: 22px;
@@ -30,7 +31,9 @@
   left: 86%;
   top: calc(50% - 11px);
 }
-.item:hover .deleteitem, .item:hover .edititem{
+
+.item:hover .deleteitem,
+.item:hover .edititem {
   display: block;
   cursor: pointer;
 }

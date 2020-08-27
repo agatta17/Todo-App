@@ -77,7 +77,7 @@ body {
   font-size: 14px;
 }
 
-.repolist li{
+.repolist li {
   border: #ccc solid 1px;
   font-size: 14px;
   margin-bottom: 5px;
@@ -87,8 +87,7 @@ body {
   line-height: 34px;
 }
 
-.repolist p {
-  margin-bottom: 3px; 
+.repolist p { margin-bottom: 3px;
 }
 
 .repolist ul {

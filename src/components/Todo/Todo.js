@@ -8,35 +8,35 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-const initialItems = []
+const initialItems = [];
 
 const initialCount = initialItems.length;
 
-const saveToLocalStorage = (items) => {
+const saveToLocalStorage = items => {
   let serialItems = JSON.stringify(items);
-  localStorage.setItem("items", serialItems);
-}
+  localStorage.setItem('items', serialItems);
+};
 
 function Todo() {
   let savedItems, savedCount;
   if (localStorage.length) {
-    savedItems = JSON.parse(localStorage.getItem("items"));
-    savedCount = parseInt(localStorage.getItem("count"), 10);
+    savedItems = JSON.parse(localStorage.getItem('items'));
+    savedCount = parseInt(localStorage.getItem('count'), 10);
   } else {
     saveToLocalStorage(initialItems);
-    localStorage.setItem("count", initialCount);
+    localStorage.setItem('count', initialCount);
     savedItems = initialItems;
     savedCount = initialCount;
   }
   useEffect(() => {});
   useEffect(() => {console.log('mount')},[]);
-  const [bottomNavigationValue, setBottomNavigationValue] = useState("all");
+  const [bottomNavigationValue, setBottomNavigationValue] = useState('all');
   const [count, setCount] = useState(savedCount);
   const [items, setItems] = useState(savedItems);
 
   const moveItems = useCallback(
     (dragIndex, hoverIndex) => {
-      const dragCard = items[dragIndex]
+      const dragCard = items[dragIndex];
       const newItemList = update(items, {
         $splice: [
           [dragIndex, 1],
@@ -54,7 +54,7 @@ function Todo() {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
-        if (bottomNavigationValue != "all") newItem.hide = !item.hide;
+        if (bottomNavigationValue !== 'all') {newItem.hide = !item.hide};
       }
       return newItem;
     });
@@ -69,7 +69,7 @@ function Todo() {
   };
 
   const onClickAdd = value => {
-    let hide = (bottomNavigationValue === "completed") ? true : false;
+    let hide = (bottomNavigationValue === 'completed') ? true : false;
     const newCount=count+1;
     const newItemList = [...items, {
         value,
@@ -78,11 +78,11 @@ function Todo() {
         disabled: true,
         hide: hide
         }
-      ]
+      ];
     setItems(newItemList);
     setCount(newCount);
     saveToLocalStorage(newItemList);
-    localStorage.setItem("count", newCount);
+    localStorage.setItem('count', newCount);
   };
 
   const onEditItem = id => {
@@ -111,7 +111,7 @@ function Todo() {
   };
 
   const onClickDeleteCompleted = () => {
-    const newItemList = items.filter(item => item.isDone == false);
+    const newItemList = items.filter(item => item.isDone === false);
     setItems(newItemList);    
     saveToLocalStorage(newItemList);
   };
@@ -127,7 +127,7 @@ function Todo() {
       return newItem;
     });
     setItems(newItemList);
-    setBottomNavigationValue ("active");
+    setBottomNavigationValue ('active');
     saveToLocalStorage(newItemList);
   }
 
@@ -136,11 +136,11 @@ function Todo() {
       const newItem = { ...item };
       if (item.isDone === false) {
         newItem.hide = true;
-      } else newItem.hide = false;
+      } else {newItem.hide = false};
       return newItem;
     });
     setItems(newItemList);
-    setBottomNavigationValue ("completed");
+    setBottomNavigationValue ('completed');
     saveToLocalStorage(newItemList);
   }
 
@@ -151,7 +151,7 @@ function Todo() {
       return newItem;
     });
     setItems(newItemList);  
-    setBottomNavigationValue ("all");
+    setBottomNavigationValue ('all');
     saveToLocalStorage(newItemList);
   }
 
@@ -164,7 +164,7 @@ function Todo() {
           <ItemList  items={items} moveItems={moveItems}/>
         </DndProvider>
       </ItemsContext.Provider>
-      <Footer bottomNavigationValue={bottomNavigationValue} count={items.filter(item => item.isDone == false).length} onClickDeleteCompleted={onClickDeleteCompleted} hideCompleted={hideCompleted} hideActive={hideActive} displayAll={displayAll}/>
+      <Footer bottomNavigationValue={bottomNavigationValue} count={items.filter(item => item.isDone === false).length} onClickDeleteCompleted={onClickDeleteCompleted} hideCompleted={hideCompleted} hideActive={hideActive} displayAll={displayAll}/>
     </>);
   
 };

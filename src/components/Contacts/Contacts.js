@@ -7,7 +7,7 @@ import gmail from './gmail.svg';
 
 function Contacts() {
   return (
-  	<>
+    <>
 	    <h1 className={styles.title}>Контакты</h1>
 	    <div className={styles.icons}>
 		    <a href='https://t.me/ryzhowski' target='blank'><img src={telegram} className={styles.img}></img></a>

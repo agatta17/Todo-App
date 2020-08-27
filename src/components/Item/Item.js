@@ -14,44 +14,44 @@ const inputBaseStyle = {
 }
 
 function Item({value, isDone, id, disabled, hide, index, moveItems}) {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const [, drop] = useDrop({
     accept: ItemTypes.ITEM,
     hover(item, monitor) {
       if (!ref.current) {
-        return
+        return;
       }
-      const dragIndex = item.index
-      const hoverIndex = index
+      const dragIndex = item.index;
+      const hoverIndex = index;
       if (dragIndex === hoverIndex) {
         return
       }
-      const hoverBoundingRect = ref.current?.getBoundingClientRect()
+      const hoverBoundingRect = ref.current?.getBoundingClientRect();
       const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
-      const clientOffset = monitor.getClientOffset()
-      const hoverClientY = clientOffset.y - hoverBoundingRect.top
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const clientOffset = monitor.getClientOffset();
+      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return
       }
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return
       }
-      moveItems(dragIndex, hoverIndex)
-      item.index = hoverIndex
+      moveItems(dragIndex, hoverIndex);
+      item.index = hoverIndex;
     },
-  })
+  });
   const [{ isDragging }, drag] = useDrag({
     item: { type: ItemTypes.ITEM, id, index },
-    collect: (monitor) => ({
+    collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
   })
-  const opacity = isDragging ? 0 : 1
-  drag(drop(ref))
+  const opacity = isDragging ? 0 : 1;
+  drag(drop(ref));
   return (
     <ItemsContext.Consumer>
-      {({onClickDone, onClickDelete, onEditItem, onChangeValue, onBlurItem})=>(<React.Fragment>
+      {({onClickDone, onClickDelete, onEditItem, onChangeValue, onBlurItem}) => (<React.Fragment>
         <div style={{opacity}} ref={ref} className={
           classnames({
             [styles.item]: true,
@@ -72,7 +72,7 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
               multiline
               onBlur={ event => onBlurItem(id, event.target.value.toUpperCase()) }
               onChange={ event => event.target.value.toUpperCase() }
-              onKeyPress={ event => {if (event.key === 'Enter') onBlurItem(id, event.target.value.toUpperCase())} }
+              onKeyPress={ event => {if (event.key === 'Enter') {onBlurItem(id, event.target.value.toUpperCase())};} }
             />
           }
           <div 
@@ -88,7 +88,7 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
         </div>
       </React.Fragment>)}
     </ItemsContext.Consumer>
-  )
+  );
 }
 
 Item.defaultProps = {
