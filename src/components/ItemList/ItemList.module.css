@@ -2,3 +2,7 @@
   list-style-type: none;
   padding: 0;
 }
+.noitems {
+  margin-top: 20px;
+  text-align: center;
+}

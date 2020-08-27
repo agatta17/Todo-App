@@ -8,6 +8,7 @@ import Card from '@material-ui/core/Card';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import AppBar from '@material-ui/core/AppBar';
+import whs from './whs.png';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           </MenuList>
         </AppBar>
         <Card className={styles.content}>
+          <img src={whs} className={styles.logo}></img>
           <Route path='/' exact component={About} />
           <Route path='/todo' component={Todo} />
           <Route path='/contacts' component={Contacts} />

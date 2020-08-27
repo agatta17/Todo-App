@@ -14,23 +14,31 @@ class InputItem extends React.Component {
   };
 
   onButtonClick = () => {
+    let error = false;
     this.setState({
       inputValue: ''
     });
-    if (this.state.inputValue !== '') {
-      this.props.onClickAdd(this.state.inputValue);
+    if (this.state.inputValue == '') {
       this.setState({
-        label: "Добавить задание",
-        id: "standard-basic",
-        error: false
-      })
-    } else {
+        error: true,
+        id: "standard-error-helper-text",
+        label: "Введите задание!",
+      });
+    } else if (this.props.items.filter(item => item.value == this.state.inputValue).length !== 0) {        
         this.setState({
           error: true,
           id: "standard-error-helper-text",
-          label: "Введите задание!",
-        })
-      }
+          label: "Задание уже существует!",
+        });
+        console.log(this.props.items.filter(item => item.value == this.state.inputValue));
+      } else {
+          this.props.onClickAdd(this.state.inputValue);
+          this.setState({
+            error: false,
+            id: "standard-basic",
+            label: "Добавить задание",
+          });
+        }
   }
   
   render() {

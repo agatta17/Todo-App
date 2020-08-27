@@ -5,37 +5,40 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Link from '@material-ui/core/Link';
 import PropTypes from 'prop-types';
 
-function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
-  return (
+
+function Footer ({count, onClickDeleteCompleted, hideCompleted, hideActive, displayAll, bottomNavigationValue}) {
+  return(<footer className={styles.footer}>
     <BottomNavigation
-      value={value}
+      value={bottomNavigationValue}
       onChange={(event, newValue) => {
-        setValue(newValue);
+        switch (newValue) {
+          case "active":
+            hideCompleted();
+            break;
+          case "completed":
+            hideActive();
+            break;
+          default: 
+            displayAll();
+        }
       }}
       showLabels
     >
-      <BottomNavigationAction label="Все" />
-      <BottomNavigationAction label="Активные" />
-      <BottomNavigationAction label="Выполненные" />
+      <BottomNavigationAction label="Все" value="all"/>
+      <BottomNavigationAction label="Активные" value="active"/>
+      <BottomNavigationAction label="Выполненные" value="completed"/>
     </BottomNavigation>
-  );
-};
-
-const Footer = ({count}) => (<footer className={styles.footer}>
-
-  {SimpleBottomNavigation()}
   
   <span className={styles.left}> Невыполненных задач: {count} </span>
 
   <Link 
     component="button" variant="body2" 
-    onClick={() => {console.info("I'm a button.");}}
+    onClick={ () => onClickDeleteCompleted() }
   >
     Удалить выполненные задачи
   </Link>
 
-</footer>);
+</footer>)};
 
 Footer.defaultProps = {
   count: 0,

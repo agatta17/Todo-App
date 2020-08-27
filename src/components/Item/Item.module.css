@@ -1,20 +1,36 @@
 .item {
   color: #333;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  line-height: 40px;
+  line-height: 25px;
   position: relative;
+  cursor: move;
+  border: 1px dashed gray;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
 }
 .deleteitem {
   display: none;
-  width: 18px;
+  width: 19px;
   height: 22px;
-  background-image: url("delete.svg");
+  background-image: url("remove.svg");
   background-size: cover;
   position: absolute;
-  left: 92%;
-  top: 8px;
+  left: 93%;
+  top: calc(50% - 11px);
 }
-.item:hover .deleteitem{
+.edititem {
+  display: none;
+  width: 22px;
+  height: 22px;
+  background-image: url("pencil.svg");
+  background-size: cover;
+  position: absolute;
+  left: 86%;
+  top: calc(50% - 11px);
+}
+.item:hover .deleteitem, .item:hover .edititem{
   display: block;
   cursor: pointer;
 }

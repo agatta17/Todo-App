@@ -17,7 +17,8 @@
 }
 
 .avatar {
-  width: 220px;
+  width: 50px;
+  height: 50px;
 }
 
 .progress {
@@ -26,4 +27,78 @@
 
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.info {
+  display: flex;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.bio {
+  font-style: italic;
+}
+
+.text {
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.text p {
+  margin: 0;
+}
+
+.works {
+  font-size: 14px;
+}
+
+.works p {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.works ul {
+  margin-top: 5px;
+}
+
+.works li {
+  margin-bottom: 6px;
+}
+
+.repolist {
+  min-height: 150px;
+}
+
+.repolisttitle {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.repolist li{
+  border: #ccc solid 1px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  list-style-type: none;
+  padding: 4px;
+  border-radius: 3px;
+  line-height: 34px;
+}
+
+.repolist p {
+  margin-bottom: 3px; 
+}
+
+.repolist ul {
+  padding-left: 20px;
+}
+
+a {
+  color: #3f51b5;
+}
+
+.pagination ul {
+  justify-content: center;
 }
