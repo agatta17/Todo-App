@@ -87,7 +87,8 @@ body {
   line-height: 34px;
 }
 
-.repolist p { margin-bottom: 3px;
+.repolist p {
+  margin-bottom: 3px;
 }
 
 .repolist ul {

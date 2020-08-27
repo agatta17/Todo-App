@@ -54,7 +54,7 @@ function Todo() {
       const newItem = { ...item };
       if (item.id === id) {
         newItem.isDone = !item.isDone;
-        if (bottomNavigationValue !== 'all') {newItem.hide = !item.hide};
+        if (bottomNavigationValue !== 'all') {newItem.hide = !item.hide}
       }
       return newItem;
     });
@@ -129,14 +129,14 @@ function Todo() {
     setItems(newItemList);
     setBottomNavigationValue ('active');
     saveToLocalStorage(newItemList);
-  }
+  };
 
   const hideActive = () => {
     const newItemList = items.map(item => {
       const newItem = { ...item };
       if (item.isDone === false) {
         newItem.hide = true;
-      } else {newItem.hide = false};
+      } else {newItem.hide = false}
       return newItem;
     });
     setItems(newItemList);

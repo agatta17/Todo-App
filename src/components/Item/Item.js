@@ -24,7 +24,7 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
       const dragIndex = item.index;
       const hoverIndex = index;
       if (dragIndex === hoverIndex) {
-        return
+        return;
       }
       const hoverBoundingRect = ref.current?.getBoundingClientRect();
       const hoverMiddleY =
@@ -46,7 +46,7 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
-  })
+  });
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
   return (
@@ -72,7 +72,9 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
               multiline
               onBlur={ event => onBlurItem(id, event.target.value.toUpperCase()) }
               onChange={ event => event.target.value.toUpperCase() }
-              onKeyPress={ event => {if (event.key === 'Enter') {onBlurItem(id, event.target.value.toUpperCase())};} }
+              onKeyPress={ event => {
+                if (event.key === 'Enter') {onBlurItem(id, event.target.value.toUpperCase())}
+              }}
             />
           }
           <div 

@@ -38,7 +38,7 @@ function Footer ({count, onClickDeleteCompleted, hideCompleted, hideActive, disp
     Удалить выполненные задачи
   </Link>
 
-</footer>)}
+</footer>)};
 
 Footer.defaultProps = {
   count: 0,
