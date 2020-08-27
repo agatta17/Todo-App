@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 class InputItem extends React.Component {
   state = {
     inputValue: '',
-    label: "Добавить задание",
-    id: "standard-basic",
+    label: 'Добавить задание',
+    id: 'standard-basic',
     error: false
 
   };
@@ -21,22 +21,22 @@ class InputItem extends React.Component {
     if (this.state.inputValue == '') {
       this.setState({
         error: true,
-        id: "standard-error-helper-text",
-        label: "Введите задание!",
+        id: 'standard-error-helper-text',
+        label: 'Введите задание!',
       });
     } else if (this.props.items.filter(item => item.value == this.state.inputValue).length !== 0) {        
         this.setState({
           error: true,
-          id: "standard-error-helper-text",
-          label: "Задание уже существует!",
+          id: 'standard-error-helper-text',
+          label: 'Задание уже существует!',
         });
         console.log(this.props.items.filter(item => item.value == this.state.inputValue));
       } else {
           this.props.onClickAdd(this.state.inputValue);
           this.setState({
             error: false,
-            id: "standard-basic",
-            label: "Добавить задание",
+            id: 'standard-basic',
+            label: 'Добавить задание',
           });
         }
   }
@@ -54,9 +54,9 @@ class InputItem extends React.Component {
           }}
         />
         <Button 
-          variant="outlined" 
-          color="primary" 
-          size="small" 
+          variant='outlined' 
+          color='primary' 
+          size='small' 
           onClick={this.onButtonClick}
         >
           Добавить
