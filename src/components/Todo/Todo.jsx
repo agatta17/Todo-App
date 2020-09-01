@@ -29,8 +29,6 @@ function Todo() {
     savedItems = initialItems;
     savedCount = initialCount;
   }
-  useEffect(() => {});
-  useEffect(() => {console.log('mount')},[]);
   const [bottomNavigationValue, setBottomNavigationValue] = useState('all');
   const [count, setCount] = useState(savedCount);
   const [items, setItems] = useState(savedItems);

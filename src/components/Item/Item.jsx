@@ -48,8 +48,7 @@ function Item({value, isDone, id, disabled, hide, index, moveItems, sortingAvail
     }),
   });
   const opacity = isDragging ? 0 : 1;
-  console.log(sortingAvailable);
-  if (sortingAvailable) drag(drop(ref));
+  if (sortingAvailable) {drag(drop(ref))};
   return (
     <ItemsContext.Consumer>
       {({onClickDone, onClickDelete, onEditItem, onChangeValue, onBlurItem}) => (<React.Fragment>
