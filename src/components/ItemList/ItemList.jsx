@@ -1,10 +1,10 @@
 import React from 'react';
-import Item from '../Item/Item';
+import Item from '../Item/Item.jsx';
 import styles from './ItemList.module.css';
 import PropTypes from 'prop-types';
 import noItems from './no-items.png';
 
-const ItemList = ({items, moveItems}) => {
+const ItemList = ({items, moveItems, sortingAvailable}) => {
   return (
     <>
       {!items.length && <div className={styles.noitems}><img src={noItems}></img></div>}
@@ -18,6 +18,7 @@ const ItemList = ({items, moveItems}) => {
             hide={item.hide}
             index={index}
             moveItems={moveItems}
+            sortingAvailable={sortingAvailable}
           />
         </li>)}
       </ul>

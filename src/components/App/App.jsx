@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Todo from '../Todo/Todo';
-import About from '../About/About';
-import Contacts from '../Contacts/Contacts';
+import Todo from '../Todo/Todo.jsx';
+import About from '../About/About.jsx';
+import Contacts from '../Contacts/Contacts.jsx';
 import styles from './App.module.css';
 import Card from '@material-ui/core/Card';
 import MenuList from '@material-ui/core/MenuList';
@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div className={styles.wrap}>
         <AppBar position='static' color='transparent'>
-          <MenuList className={styles.menu} id="simple-menu">
+          <MenuList className={styles.menu} id='simple-menu'>
             <Link className={styles.link} to='/'><MenuItem>Обо мне</MenuItem></Link>
             <Link className={styles.link} to='/todo'><MenuItem>Задачи</MenuItem></Link>
             <Link className={styles.link} to='/contacts'><MenuItem>Контакты</MenuItem></Link>

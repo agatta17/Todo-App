@@ -13,7 +13,7 @@ const inputBaseStyle = {
   cursor: 'move'
 }
 
-function Item({value, isDone, id, disabled, hide, index, moveItems}) {
+function Item({value, isDone, id, disabled, hide, index, moveItems, sortingAvailable}) {
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: ItemTypes.ITEM,
@@ -48,7 +48,8 @@ function Item({value, isDone, id, disabled, hide, index, moveItems}) {
     }),
   });
   const opacity = isDragging ? 0 : 1;
-  drag(drop(ref));
+  console.log(sortingAvailable);
+  if (sortingAvailable) drag(drop(ref));
   return (
     <ItemsContext.Consumer>
       {({onClickDone, onClickDelete, onEditItem, onChangeValue, onBlurItem}) => (<React.Fragment>
