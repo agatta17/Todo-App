@@ -55,7 +55,8 @@ function Item({value, isDone, id, disabled, hide, index, moveItems, sortingAvail
         <div style={{opacity}} ref={ref} className={
           classnames({
             [styles.item]: true,
-            [styles.done]: isDone
+            [styles.moving]: sortingAvailable,
+            [styles.done]: isDone,
           })
         }>
           <Checkbox 
