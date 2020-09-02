@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import InputItem from '../InputItem/InputItem';
-import ItemList from '../ItemList/ItemList';
-import Footer from '../Footer/Footer';
+import InputItem from '../InputItem/InputItem.jsx';
+import ItemList from '../ItemList/ItemList.jsx';
+import Footer from '../Footer/Footer.jsx';
 import styles from './Todo.module.css';
 import { ItemsContext } from '../../itemsContext';
-import { DndProvider } from 'react-dnd';
+import { DndProvider } from 'react-dnd-multi-backend';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
 import update from 'immutability-helper';
 
 const initialItems = [];
@@ -28,12 +29,10 @@ function Todo() {
     savedItems = initialItems;
     savedCount = initialCount;
   }
-  useEffect(() => {});
-  useEffect(() => {console.log('mount')},[]);
   const [bottomNavigationValue, setBottomNavigationValue] = useState('all');
   const [count, setCount] = useState(savedCount);
   const [items, setItems] = useState(savedItems);
-
+  const [sortingAvailable, setSortingAvailable] = useState(true);
   const moveItems = useCallback(
     (dragIndex, hoverIndex) => {
       const dragCard = items[dragIndex];
@@ -126,9 +125,9 @@ function Todo() {
         }
       return newItem;
     });
+    setSortingAvailable(false);
     setItems(newItemList);
     setBottomNavigationValue ('active');
-    saveToLocalStorage(newItemList);
   };
 
   const hideActive = () => {
@@ -139,9 +138,9 @@ function Todo() {
       } else {newItem.hide = false}
       return newItem;
     });
+    setSortingAvailable(false);
     setItems(newItemList);
     setBottomNavigationValue ('completed');
-    saveToLocalStorage(newItemList);
   }
 
   const displayAll = () => {
@@ -150,9 +149,10 @@ function Todo() {
         newItem.hide = false;
       return newItem;
     });
-    setItems(newItemList);  
-    setBottomNavigationValue ('all');
+    setItems(newItemList);
     saveToLocalStorage(newItemList);
+    setBottomNavigationValue ('all');
+    setSortingAvailable(true);
   }
 
   return (
@@ -160,8 +160,8 @@ function Todo() {
       <h1 className={styles.title}>Задачи на сегодня:</h1>
       <InputItem onClickAdd={onClickAdd} items={items} />
       <ItemsContext.Provider value={{onClickDone, onClickDelete, onEditItem, onBlurItem}}>
-        <DndProvider backend={HTML5Backend}>
-          <ItemList  items={items} moveItems={moveItems}/>
+        <DndProvider options={HTML5toTouch}>
+          <ItemList  items={items} moveItems={moveItems} sortingAvailable={sortingAvailable}/>
         </DndProvider>
       </ItemsContext.Provider>
       <Footer bottomNavigationValue={bottomNavigationValue} count={items.filter(item => item.isDone === false).length} onClickDeleteCompleted={onClickDeleteCompleted} hideCompleted={hideCompleted} hideActive={hideActive} displayAll={displayAll}/>

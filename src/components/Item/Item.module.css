@@ -3,12 +3,14 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   line-height: 25px;
   position: relative;
-  cursor: move;
   border: 1px dashed #808080;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
   padding-right: 50px;
+}
+.moving {
+  cursor: move;
 }
 .deleteitem {
   display: none;
