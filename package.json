@@ -2,6 +2,7 @@
   "name": "test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://agatta17.github.io/Todo-App",
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@octokit/rest": "^17.11.0",
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +46,7 @@
   "devDependencies": {
     "@material-ui/core": "^4.9.14",
     "classnames": "^2.2.6",
+    "gh-pages": "^3.1.0",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0"
   }
