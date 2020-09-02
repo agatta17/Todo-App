@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Todo-App/static/css/main.a8686899.chunk.css",
+    "main.js": "/Todo-App/static/js/main.003d4e1e.chunk.js",
+    "main.js.map": "/Todo-App/static/js/main.003d4e1e.chunk.js.map",
+    "runtime-main.js": "/Todo-App/static/js/runtime-main.e5872ecb.js",
+    "runtime-main.js.map": "/Todo-App/static/js/runtime-main.e5872ecb.js.map",
+    "static/js/2.0a64c397.chunk.js": "/Todo-App/static/js/2.0a64c397.chunk.js",
+    "static/js/2.0a64c397.chunk.js.map": "/Todo-App/static/js/2.0a64c397.chunk.js.map",
+    "index.html": "/Todo-App/index.html",
+    "precache-manifest.9bd2fd9d51df81deb203a306a2391376.js": "/Todo-App/precache-manifest.9bd2fd9d51df81deb203a306a2391376.js",
+    "service-worker.js": "/Todo-App/service-worker.js",
+    "static/css/main.a8686899.chunk.css.map": "/Todo-App/static/css/main.a8686899.chunk.css.map",
+    "static/js/2.0a64c397.chunk.js.LICENSE.txt": "/Todo-App/static/js/2.0a64c397.chunk.js.LICENSE.txt",
+    "static/media/gmail.svg": "/Todo-App/static/media/gmail.b3005827.svg",
+    "static/media/About.module.css": "/Todo-App/static/media/icon-attention.3322efd5.svg",
+    "static/media/instagram.svg": "/Todo-App/static/media/instagram.160b0c99.svg",
+    "static/media/no-items.png": "/Todo-App/static/media/no-items.bdb72f00.png",
+    "static/media/Item.module.css": "/Todo-App/static/media/remove.145db91c.svg",
+    "static/media/telegram.svg": "/Todo-App/static/media/telegram.a888fec0.svg",
+    "static/media/vk.svg": "/Todo-App/static/media/vk.b03024c4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5872ecb.js",
+    "static/js/2.0a64c397.chunk.js",
+    "static/css/main.a8686899.chunk.css",
+    "static/js/main.003d4e1e.chunk.js"
+  ]
+}
